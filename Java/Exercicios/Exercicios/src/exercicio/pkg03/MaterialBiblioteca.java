@@ -35,7 +35,6 @@ class MaterialBiblioteca {
 
     public void exibirDetalhes() {
         System.out.printf("Autor: " + getAutor() + "\nTitulo: " + getTitulo() + "\nAno publicado: " + getAnoPublicacao());
-
     }
 
     public void emprestar() {

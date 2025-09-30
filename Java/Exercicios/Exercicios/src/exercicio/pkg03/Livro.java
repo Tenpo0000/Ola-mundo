@@ -1,7 +1,7 @@
 class Livro extends MaterialBiblioteca {
     private int NumeroDePaginas;
 
-    public Livro(String titulo, String autor, int anoPublicacao) {
+    public Livro(String titulo, String autor, int anoPublicacao, int paginaLivro) {
         super(titulo, autor, anoPublicacao);
         this.NumeroDePaginas = NumeroDePaginas;
     }
