@@ -7,6 +7,7 @@ public static void main(String[] args) {
     int op = 0;
     do {
         System.out.printf(
+
                 "===== MENU BIBLIOTECA =====\n"
                 + "1 - Adicionar Revista\n"
                 + "2 - Adicionar Jornal\n"
