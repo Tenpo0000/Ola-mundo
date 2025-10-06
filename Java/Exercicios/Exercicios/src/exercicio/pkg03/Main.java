@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
+    Biblioteca biblioteca = new Biblioteca();
 
     int op = 0;
     do {
@@ -34,7 +35,7 @@ public static void main(String[] args) {
                 int edicaoRevista = sc.nextInt();
 
                 Revista revista = new Revista(TituloRevista, autorRevista, publicacaoRevista, edicaoRevista);
-            break;
+                break;
 
             case 2:
                 System.out.print("\nDigite o título do Jornal: ");
@@ -50,7 +51,7 @@ public static void main(String[] args) {
                 int edicaoJornal = sc.nextInt();
 
                 Jornal jornal = new Jornal(TituloJornal, autorJornal, publicacaoJornal, edicaoJornal);
-            break;
+                break;
 
             case 3:
                 System.out.print("\nDigite o título do livro: ");
@@ -66,8 +67,27 @@ public static void main(String[] args) {
                 int paginaLivro = sc.nextInt();
 
                 Livro livro = new Livro(TituloLivro, autorLivro, publicacaoLivro, paginaLivro);
-            break;
+                break;
 
+            case 4:
+                biblioteca.listarMaterial();
+                break;
+
+            case 5:
+                System.out.println("Qual titulo deseja procurar? ");
+                String procurarTitulo = sc.nextLine();
+                biblioteca.buscarMaterial(procurarTitulo);
+                break;
+
+            case 6:
+                System.out.println("Qual titulo você procura? ");
+                String procurar = sc.nextLine();
+            biblioteca.emprestarMaterial(procurar);
+                break;
+
+            case 7:
+                System.out.println("Finalizando atendimento..");
+                System.exit(0);
         }
     }  while (op != 7);
 }
