@@ -3,7 +3,7 @@ package exercicio.pkg02;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Main {
+/*public class Main {
     public static void questao1 (){
         Scanner scan = new Scanner(System.in);
         Funcionario mario = new Funcionario ("mario");
@@ -48,4 +48,5 @@ public class Main {
         //questao1();
         questao2();
     }
-}
+   }
+ */

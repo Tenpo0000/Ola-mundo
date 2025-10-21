@@ -40,4 +40,9 @@ class MaterialBiblioteca {
     public void emprestar() {
         System.out.println("Material emprestado: " + titulo);
     }
+
+    @Override
+    public String toString() {
+        return "Título: " + titulo + ", Autor: " + autor + ", Ano: " + anoPublicacao;
+    }
 }

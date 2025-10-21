@@ -11,4 +11,9 @@ class Revista extends MaterialBiblioteca {
         super.exibirDetalhes();
         System.out.println("\n Edicão: " + edicao);
     }
+
+    @Override
+    public String toString() {
+        return "Revista - " + super.toString() + ", Edição: " + edicao;
+    }
 }

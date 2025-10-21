@@ -11,4 +11,9 @@ class Livro extends MaterialBiblioteca {
         super.exibirDetalhes();
         System.out.println("\n Numero de paginas : " + NumeroDePaginas);
     }
+
+    @Override
+    public String toString() {
+        return "Livro - " + super.toString() + ", Páginas: " + NumeroDePaginas;
+    }
 }

@@ -11,4 +11,10 @@ class Jornal extends MaterialBiblioteca {
         super.exibirDetalhes();
         System.out.println("\n Edicão: " + dataedicao);
     }
+
+    @Override
+    public String toString() {
+        return "Jornal - " + super.toString() + ", Edição: " + dataedicao;
+    }
+
 }
