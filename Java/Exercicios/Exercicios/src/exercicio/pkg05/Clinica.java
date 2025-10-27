@@ -1,9 +1,13 @@
 import java.util.ArrayList;
 
 public class Clinica {
+    public static void main(String[] args) {
+
+    }
     private ArrayList<Veterinario> veterinario = new ArrayList<>();
     private ArrayList<Dono> dono = new ArrayList<>();
-    private ArrayList<Atendimento> atendimento = new ArrayList<>() ;
+    private ArrayList<Atendimento> atendimento = new ArrayList<>();
+    private ArrayList<Servico> servico = new ArrayList<>();
 
     public Clinica(ArrayList<Veterinario> funcionario, ArrayList<Dono> dono, ArrayList<Atendimento> atendimento) {
         this.veterinario = funcionario;
@@ -11,8 +15,8 @@ public class Clinica {
         this.atendimento = atendimento;
     }
 
-    public void cadastroFuncionario(Veterinario Veterinario){
-        this.veterinario.add(Veterinario);
+    public void cadastroFuncionario(Veterinario veterinario){
+        this.veterinario.add(veterinario);
     }
 
     public void cadastroDono(Dono dono, Pet animal){
@@ -26,7 +30,7 @@ public class Clinica {
         } else {
             int i = 1;
             for (Veterinario f : veterinario){
-                System.out.println("Funcionário" + i + ": " +  f);
+                System.out.println("Funcionário " + i + ": " + f);
                 i++;
             }
         }
@@ -55,28 +59,48 @@ public class Clinica {
     }
 
     public void listarAnimalPorDono(Dono dono){
-        System.out.println("nome do dono: " + dono.getNome());
+        System.out.println("Nome do dono: " + dono.getNome());
         dono.listarAnimais();
+    }
+
+    public void listarServicos(){
+        int i = 1;
+        for(Servico s: servico){
+            System.out.println("Serviço " + i + ": " + s.getNome() + " Valor: " + s.getValor());
+            i++;
+        }
+    }
+
+    public void listarAtendimentos(){
+        int i = 1;
+        if(atendimento.isEmpty()){
+            System.out.println("Não tem nenhum atendimento");
+        } else {
+            for (Atendimento a : atendimento) {
+                System.out.println("Atendimento " + i + ": Paciente: " + a.getPet().getNome() + " Serviço: " + a.getServico() + " Valor: " + a.getValor());
+                i++;
+            }
+        }
     }
 
     public void buscarFuncionario(String nomeFuncionario){
         boolean verificacao = false;
         for(Veterinario f : veterinario){
             if(f.getNome().equalsIgnoreCase(nomeFuncionario)){
-                System.out.println("Funcionario encontrado!");
+                System.out.println("Funcionário encontrado!");
                 verificacao = true;
                 break;
             }
         }
         if(!verificacao){
-            System.out.println("Funcionario não encontrado!");
+            System.out.println("Funcionário não encontrado!");
         }
     }
 
-    public void buscarDono(String NomeDono){
+    public void buscarDono(String nomeDono){
         boolean verificacao = false;
         for(Dono d : dono){
-            if(d.getNome().equalsIgnoreCase(NomeDono)){
+            if(d.getNome().equalsIgnoreCase(nomeDono)){
                 System.out.println("Dono encontrado!");
                 verificacao = true;
                 break;
@@ -88,19 +112,19 @@ public class Clinica {
     }
 
     public void buscarAnimal(String nomeAnimal){
-        boolean verificacao = true;
-        int i = 0;
+        boolean encontrado = false;
+        int i = 1;
         for(Dono d : dono){
             for(Pet p : d.getAnimal()){
                 if(p.getNome().equalsIgnoreCase(nomeAnimal)){
-                    System.out.println(i + ": nome" + p.getNome() + "Especie: " + p.getEspecie());
-                    verificacao = false;
+                    System.out.println("Animal " + i + ": Nome: " + p.getNome() + " Espécie: " + p.getEspecie());
+                    encontrado = true;
                     i++;
                 }
             }
-            if(!verificacao){
-                System.out.println("Animal Não encontrado!");
-            }
+        }
+        if(!encontrado){
+            System.out.println("Animal não encontrado!");
         }
     }
 }
